@@ -1,0 +1,47 @@
+datasource db {
+  provider = "sqlite"
+  // Wasp requires that the url is set to the DATABASE_URL environment variable.
+  url      = env("DATABASE_URL")
+}
+
+// Wasp requires the `prisma-client-js` generator to be present.
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+    id       Int        @id @default(autoincrement())
+    rsvp     Rsvp[]
+    registry Registry[]
+}
+
+model Rsvp {
+    id        Int     @id @default(autoincrement())
+    user      User    @relation(fields: [userId], references: [id])
+    userId    Int
+    guestName String
+    attending Boolean
+    guests    Int
+}
+
+model Registry {
+    id              Int     @id @default(autoincrement())
+    user            User    @relation(fields: [userId], references: [id])
+    userId          Int
+    itemName        String
+    itemDescription String
+    itemPrice       Float
+    purchased       Boolean @default(false)
+}
+
+model Guest {
+  id                 Int     @id @default(autoincrement())
+  first_name         String
+  last_name          String
+  family_name        String?
+  bridal_party       Boolean?
+  rehearsal_dinner   Boolean?
+  welcome_party      Boolean?
+  wedding            Boolean?
+  farewell_brunch    Boolean?
+}

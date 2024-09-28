@@ -1,0 +1,109 @@
+app wedding_website {
+  wasp: {
+    version: "^0.14.2"
+  },
+  title: "wedding_website",
+  client: {
+    rootComponent: import { Layout } from "@src/Layout.jsx",
+  },
+}
+
+action createRsvp {
+  fn: import { createRsvp } from "@src/actions.js",
+  entities: [Rsvp]
+}
+
+action updateRsvp {
+  fn: import { updateRsvp } from "@src/actions.js",
+  entities: [Rsvp]
+}
+
+action createRegistry {
+  fn: import { createRegistry } from "@src/actions.js",
+  entities: [Registry]
+}
+
+action updateRegistry {
+  fn: import { updateRegistry } from "@src/actions.js",
+  entities: [Registry]
+}
+
+query getRsvp {
+  fn: import { getRsvp } from "@src/queries.js",
+  entities: [Rsvp]
+}
+
+query getRegistry {
+  fn: import { getRegistry } from "@src/queries.js",
+  entities: [Registry]
+}
+
+// Google Sheets Operations
+
+action getUniqueNewGuestsFromSheets {
+  fn: import { getUniqueNewGuestsFromSheets } from "@src/actions.js",
+  entities: []
+}
+
+action exportGuestsToSheets {
+  fn: import { exportGuestsToSheets } from "@src/actions.js",
+  entities: [Guest]
+}
+
+// action fetchAndProcessGuestsFromSheets {
+//   fn: import { fetchAndProcessGuestsFromSheets } from "@src/actions.js",
+//   entities: []
+// }
+
+// DB Operations
+
+query seedGuests {
+  fn: import { seedGuests } from "@src/queries.js",
+  entities: [Guest]
+}
+
+query getGuests {
+  fn: import { getGuests } from "@src/queries.js",
+  entities: [Guest]
+}
+
+query clearTable {
+  fn: import { clearTable } from "@src/queries.js",
+  entities: [Guest]
+}
+
+query updateGuestEvents {
+  fn: import { updateGuestEvents } from "@src/queries.js",
+  entities: [Guest]
+}
+
+// Website Routes
+
+route HomeRoute { path: "/", to: HomePage }
+page HomePage {
+  component: import HomePage from "@src/pages/Home.jsx",
+}
+
+route RsvpRoute { path: "/rsvp", to: RsvpPage }
+page RsvpPage {
+  component: import { RsvpPageWithoutLayout } from "@src/pages/Rsvp.jsx"
+}
+
+route RegistryRoute { path: "/registry", to: RegistryPage }
+page RegistryPage {
+  component: import RegistryPage from "@src/pages/Registry.jsx",
+}
+
+route ItineraryRoute { path: "/itinerary", to: ItineraryPage }
+page ItineraryPage {
+  component: import ItineraryPage from "@src/pages/Itinerary.jsx",
+}
+
+route TestRoute { path: "/test", to: TestPage }
+page TestPage {
+  component: import TestPage from "@src/pages/Test.jsx",
+}
+// do we need to specify dependencies in main.wasp for deployment?
+// dependencies {
+//   googleapis: "^118.0.0"
+// }

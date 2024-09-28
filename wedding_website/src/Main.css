@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --auth-form-brand: theme(colors.forest.DEFAULT);
+  --auth-form-brand-accent: theme(colors.forest.dark);
+  --auth-form-submit-button-text-color: theme(colors.offwhite);
+}
+
+@layer base {
+  body {
+    @apply bg-offwhite text-charcoal font-garamond;
+  }
+
+  h1 {
+    @apply font-snell text-offwhite text-shadow-outline text-9xl;
+  }
+
+  h2 {
+    @apply font-garamond text-charcoal tracking-[0.05em];
+  }
+
+  h3 {
+    @apply font-pinyon text-offwhite text-shadow-outline text-6xl;
+  }
+
+  h4 {
+    @apply font-snell text-charcoal text-6xl;
+  }
+  
+  h5 {
+    @apply font-pinyon text-charcoal text-4xl;
+  }
+  
+  h6 {
+    @apply font-garamond text-charcoal;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-forest text-offwhite font-garamond px-4 py-2 rounded shadow-elegant hover:bg-forest-dark transition-colors;
+  }
+
+  .btn-accent {
+    @apply bg-sky text-charcoal font-pinyon px-4 py-2 rounded shadow-elegant hover:bg-sky-dark transition-colors;
+  }
+
+  .elegant-button-primary {
+    @apply 
+      /* Background and text styles */
+      bg-black
+      text-background
+      
+      /* Sizing and shape */
+      px-8 py-4
+      
+      /* Typography */
+      font-garamond text-xl tracking-wider uppercase
+      
+      /* Shadow effects */
+      shadow-elegant hover:shadow-hanging
+      
+      /* Hover and active states */
+      transform hover:-translate-y-1 active:translate-y-0
+      
+      /* Smooth transitions */
+      transition-all duration-300 ease-in-out
+      
+      /* Remove all borders and outlines */
+      border-none outline-none focus:outline-none focus:ring-0;
+  }
+
+  .custom-checkbox {
+    @apply appearance-none w-6 h-6 border-2 border-forest rounded-sm bg-background cursor-pointer transition-colors duration-200 ease-in-out;
+  }
+
+  .custom-checkbox:checked {
+    @apply bg-forest-light border-forest;
+  }
+
+  .custom-checkbox:focus {
+    @apply outline-none ring-2 ring-sky ring-opacity-50;
+  }
+}
+
+@layer utilities {
+  .elegant-text {
+    @apply font-pinyon text-2xl text-forest;
+  }
+  .text-shadow-outline {
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+}
