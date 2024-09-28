@@ -1,0 +1,6 @@
+[build]
+  command = "curl -sSL https://get.wasp-lang.dev/installer.sh | sh && export PATH="$HOME/.local/bin:$PATH" && wasp build"
+  publish = ".wasp/build/web-app"
+
+[build.environment]
+  NODE_VERSION = "18"
