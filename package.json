@@ -3,7 +3,6 @@
     "@tailwindcss/typography": "^0.5.15"
   },
   "scripts": {
-    // "seed": "node prisma/seed.js"
     "build": "wasp build"
-}
+  }
 }
