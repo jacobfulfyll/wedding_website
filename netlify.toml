@@ -1,5 +1,12 @@
 [build]
-  command = 'curl -sSL https://get.wasp-lang.dev/installer.sh | sh && export PATH="$HOME/.local/bin:$PATH" && wasp build'
+  command = '''
+    pwd
+    ls -la
+    curl -sSL https://get.wasp-lang.dev/installer.sh | sh
+    export PATH="$HOME/.local/bin:$PATH"
+    wasp version
+    wasp build
+  '''
   publish = ".wasp/build/web-app"
 
 [build.environment]
