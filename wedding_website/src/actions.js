@@ -59,9 +59,9 @@ export const updateRegistry = async ({ id, itemName, itemDescription, itemPrice,
 const getGoogleSheetsService = async () => {
   console.info('Initializing Google Sheets service...');
   try {
+    // console.info('GOOGLE_SHEETS_CREDENTIALS:', process.env.GOOGLE_SHEETS_CREDENTIALS);
+    // console.info('WEDDING_WORKBOOK_ID:', process.env.WEDDING_WORKBOOK_ID);
     const credentials = JSON.parse(process.env.GOOGLE_SHEETS_CREDENTIALS);
-    console.info('GOOGLE_SHEETS_CREDENTIALS:', process.env.GOOGLE_SHEETS_CREDENTIALS);
-    console.info('WEDDING_WORKBOOK_ID:', process.env.WEDDING_WORKBOOK_ID);
     const auth = new google.auth.GoogleAuth({
       credentials,
       scopes: [
