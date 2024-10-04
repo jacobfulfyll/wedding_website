@@ -6,6 +6,8 @@ WORKDIR /wasp
 ADD . .
 RUN curl -sSL https://get.wasp-lang.dev/installer.sh | sh
 RUN export PATH="$HOME/.local/bin:$PATH"
+RUN echo "HELLOOOOOO"
+RUN ls /root/.local/bin
 RUN /root/.local/bin/wasp build
 
 # Build the server
