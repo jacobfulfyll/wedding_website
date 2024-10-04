@@ -1,15 +1,21 @@
 [build]
-  command = '''
-    cd wedding_website
-    pwd
-    ls -la
-    curl -sSL https://get.wasp-lang.dev/installer.sh | sh
-    export PATH="$HOME/.local/bin:$PATH"
-    wasp version
-    REACT_APP_API_URL=https://wedding-website-juliet-jacob-73b59fe2a6a3.herokuapp.com/
-    wasp build
-  '''
-  publish = "wedding_website/.wasp/build/web-app"
+  publish = ".wasp/build/web-app"
+  command = "wasp build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
+
+[[headers]]
+  for = "/*.mjs"
+  [headers.values]
+    Content-Type = "application/javascript"
 
 [build.environment]
   NODE_VERSION = "18"
