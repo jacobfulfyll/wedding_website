@@ -24,6 +24,7 @@ export const getRegistry = async (args, context) => {
 
 export const getGuests = async (args, context) => {
   try {
+    // console.log("HERE I AM: ", config.allowedCORSOrigins)
     return await context.entities.Guest.findMany();
   } catch (error) {
     console.error('Error fetching guests:', error);

@@ -6,6 +6,9 @@ app wedding_website {
   client: {
     rootComponent: import { Layout } from "@src/Layout.jsx",
   },
+  // server: {
+  //   setupFn: import setupServer from "@server/setupServer.js",
+  // },
 }
 
 action createRsvp {
@@ -99,7 +102,7 @@ page ItineraryPage {
   component: import ItineraryPage from "@src/pages/Itinerary.jsx",
 }
 
-route TestRoute { path: "/test", to: TestPage }
+route TestRoute { path: "/ui_test", to: TestPage }
 page TestPage {
   component: import TestPage from "@src/pages/Test.jsx",
 }

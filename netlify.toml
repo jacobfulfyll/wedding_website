@@ -6,6 +6,7 @@
     curl -sSL https://get.wasp-lang.dev/installer.sh | sh
     export PATH="$HOME/.local/bin:$PATH"
     wasp version
+    REACT_APP_API_URL=https://wedding-website-juliet-jacob-73b59fe2a6a3.herokuapp.com/
     wasp build
   '''
   publish = "wedding_website/.wasp/build/web-app"

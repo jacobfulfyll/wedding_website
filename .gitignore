@@ -118,3 +118,7 @@ migrations
 # Don't ignore example dotenv files.
 !.env.example
 !.env.*.example
+
+# Local Netlify folder
+.netlify
+db.sh
