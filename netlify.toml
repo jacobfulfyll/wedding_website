@@ -1,14 +1,9 @@
 [build]
   command = '''
     cd wedding_website
-    pwd
-    ls -la
     curl -sSL https://get.wasp-lang.dev/installer.sh | sh
     export PATH="$HOME/.local/bin:$PATH"
-    wasp version
-    REACT_APP_API_URL=https://main--juliet-jacob-wedding.netlify.app/
     wasp build
-    wasp start
   '''
   publish = "wedding_website/.wasp/build/web-app"
 
