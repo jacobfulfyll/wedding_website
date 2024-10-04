@@ -8,6 +8,7 @@
     wasp version
     REACT_APP_API_URL=https://main--juliet-jacob-wedding.netlify.app/
     wasp build
+    wasp start
   '''
   publish = "wedding_website/.wasp/build/web-app"
 
