@@ -5,6 +5,7 @@ FROM base AS wasp-builder
 WORKDIR /wasp
 ADD . .
 RUN curl -sSL https://get.wasp-lang.dev/installer.sh | sh
+RUN export PATH="$HOME/.local/bin:$PATH"
 RUN /root/.local/bin/wasp build
 
 # Build the server
